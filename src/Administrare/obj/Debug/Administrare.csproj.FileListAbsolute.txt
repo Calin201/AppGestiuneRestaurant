@@ -3,3 +3,7 @@ S:\AppGestiuneRestaurant\Administrare\bin\Debug\Administrare.pdb
 S:\AppGestiuneRestaurant\Administrare\obj\Debug\Administrare.csproj.CoreCompileInputs.cache
 S:\AppGestiuneRestaurant\Administrare\obj\Debug\Administrare.dll
 S:\AppGestiuneRestaurant\Administrare\obj\Debug\Administrare.pdb
+S:\AppGestiuneRestaurant\src\Administrare\obj\Debug\Administrare.csproj.AssemblyReference.cache
+S:\AppGestiuneRestaurant\src\Administrare\obj\Debug\Administrare.csproj.CoreCompileInputs.cache
+S:\AppGestiuneRestaurant\src\Administrare\obj\Debug\Administrare.dll
+S:\AppGestiuneRestaurant\src\Administrare\obj\Debug\Administrare.pdb

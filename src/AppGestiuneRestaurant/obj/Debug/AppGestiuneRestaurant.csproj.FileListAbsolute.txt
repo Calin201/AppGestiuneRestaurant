@@ -4,3 +4,7 @@ S:\AppGestiuneRestaurant\AppGestiuneRestaurant\bin\Debug\AppGestiuneRestaurant.p
 S:\AppGestiuneRestaurant\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.csproj.CoreCompileInputs.cache
 S:\AppGestiuneRestaurant\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.exe
 S:\AppGestiuneRestaurant\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.pdb
+S:\AppGestiuneRestaurant\src\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.csproj.AssemblyReference.cache
+S:\AppGestiuneRestaurant\src\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.csproj.CoreCompileInputs.cache
+S:\AppGestiuneRestaurant\src\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.exe
+S:\AppGestiuneRestaurant\src\AppGestiuneRestaurant\obj\Debug\AppGestiuneRestaurant.pdb
