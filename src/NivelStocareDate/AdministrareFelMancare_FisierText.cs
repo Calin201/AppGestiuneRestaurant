@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Administrare
+namespace NivelStocareDate
 {
-    public class Class1
+    class AdministrareFelMancare_FisierText
     {
     }
 }

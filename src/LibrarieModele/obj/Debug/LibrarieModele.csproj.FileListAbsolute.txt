@@ -1,0 +1,6 @@
+S:\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.dll
+S:\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.pdb
+S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.dll
+S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.pdb

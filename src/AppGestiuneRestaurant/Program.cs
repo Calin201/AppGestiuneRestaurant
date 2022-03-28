@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarieModele;
+
 
 namespace AppGestiuneRestaurant
 {
@@ -10,13 +12,13 @@ namespace AppGestiuneRestaurant
     {
         static void Main(string[] args)
         {
-            var da = new AlimentBaza();
+            var da = new Ingredient();
             Console.WriteLine(da.Cantitate);
             Console.WriteLine(da.Denumire);
             Console.WriteLine(da.DataAchizitie);
             Console.WriteLine(da.DataExpirare);
             Console.ReadKey();
-            da = new AlimentBaza(69, "Cu Bianca", DateTime.Now, DateTime.Now);
+            da = new Ingredient(69, "Cu Bianca", DateTime.Now, DateTime.Now);
             Console.WriteLine(da.Cantitate);
             Console.WriteLine(da.Denumire);
             Console.WriteLine(da.DataAchizitie);
