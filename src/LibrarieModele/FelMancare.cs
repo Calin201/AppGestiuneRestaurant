@@ -8,21 +8,21 @@ namespace LibrarieModele
 {
     public class FelMancare
     {
-        private const char SEPARATOR_PRINCIPAL_FISIER = ',';
-        private const char SEPARATOR_LISTA_INGREDIENTE = ';';
+        private const char SEPARATOR_PRINCIPAL_FISIER = '`';
+        private const char SEPARATOR_LISTA_INGREDIENTE = '-';
         private const int DENUMIRE = 0;
         private const int LISTAINGREDIENTE = 1;
 
-        string Denumire { get; set; }
-        IList<Ingredient> ListaIngrediente { get; set; }
+        public string Denumire { get; set; }
+        public List<Ingredient> ListaIngrediente { get; set; }
 
 
         public FelMancare()
         {
-            Denumire = string.Empty;
-            ListaIngrediente = null;
+            Denumire = null;
+            ListaIngrediente= new List<Ingredient> { new Ingredient() } ;
         }
-        public FelMancare(string _denumire,IList<Ingredient> _listaIngrediente)
+        public FelMancare(string _denumire,List<Ingredient> _listaIngrediente)
         {
             Denumire = _denumire;
             ListaIngrediente = _listaIngrediente;
@@ -38,18 +38,39 @@ namespace LibrarieModele
                 ListaIngrediente.Append<Ingredient>(new Ingredient(data));
             }
         }
+        public void Citire()
+        {
+            Console.WriteLine("Alegeti un nume sugestiv felului de mancare:");
+            Denumire= Console.ReadLine();
+            Console.WriteLine("Va rugam introduceti numele si gramajul fiecarui ingredient si apoi scrieti stop pentru a va opri:");
+            Console.WriteLine("Denumirea:");
+            string denumire = Console.ReadLine();
+            do
+            {
+                Ingredient temp = new Ingredient(denumire, "IngredientMancare");
+
+                ListaIngrediente.Append(temp);
+                Console.WriteLine("Denumirea:");
+                denumire = Console.ReadLine();
+            } while (denumire.ToUpper() != "STOP");
+            
+        }
         private string ListaIngrediente_PentruFisier()
         {
-            string ListaIngredientePentruFisier = "";
-            foreach(var ingredient in ListaIngrediente)
+            string ListaIngredientePentruFisier = SEPARATOR_LISTA_INGREDIENTE.ToString();
+
+            for(int i=0;i<ListaIngrediente.Count;i++)
             {
-                ListaIngredientePentruFisier += ingredient.ConversieLaSir_PentruFisier();
+                if (ListaIngrediente.First().Denumire != null)
+                {
+                    ListaIngredientePentruFisier += ListaIngrediente[i].ConversieLaSir_PentruFelMancare() + SEPARATOR_LISTA_INGREDIENTE;
+                }
             }
             return ListaIngredientePentruFisier;
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string SirIngredientPentruFisier = string.Format("{1}{0}{2}",
+            string SirIngredientPentruFisier = string.Format("{0}{1}:\n{2}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
                 ListaIngrediente_PentruFisier()

@@ -14,7 +14,7 @@ namespace LibrarieModele
         private const int DATAACHIZITIE = 2;
         private const int DATAEXPIRARE = 3;
 
-        private int Id;
+        //private int Id;
         public string Denumire { get; set; }
         public int Cantitate { get; set; }
         public DateTime DataAchizitie { get; set; }
@@ -22,12 +22,12 @@ namespace LibrarieModele
 
         public Ingredient()
         {
-            Denumire = string.Empty;
+            Denumire = null;
             Cantitate = 0;
             DataAchizitie = DateTime.MaxValue;
             DataExpirare = DateTime.MinValue;
         }
-        public Ingredient(int _cantitate, string _denumire, DateTime _dataAchizitie, DateTime _dataExpirare)
+        public Ingredient( string _denumire, int _cantitate, DateTime _dataAchizitie, DateTime _dataExpirare)
         {
             Denumire = _denumire;
             Cantitate = _cantitate;
@@ -44,16 +44,46 @@ namespace LibrarieModele
             DataAchizitie = Convert.ToDateTime(dateFisier[DATAACHIZITIE]);
             DataExpirare = Convert.ToDateTime(dateFisier[DATAEXPIRARE]);
         }
+        public Ingredient(string _denumire, string options)
+        {
+            if (options == "IngredientMancare")
+            {
+                Denumire = _denumire;
+                Console.WriteLine("Cantitatea:");
+                Cantitate = Convert.ToInt32(Console.ReadLine());
+                DataAchizitie = DataExpirare = DateTime.MaxValue;
+            }
+        }
+        public void Citire()
+        {
+            Console.WriteLine("Alegeti numele ingredientului:");
+            Denumire = Console.ReadLine();
+            Console.WriteLine("Alegeti cantitatea:");
+            Cantitate = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Alegeti data achizitiei sub forma xx.xx.20xx:");
+            DataAchizitie = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Alegeti data expirarii sub forma xx.xx.20xx:");
+            DataExpirare = Convert.ToDateTime(Console.ReadLine());
+        }
         public string ConversieLaSir_PentruFisier()
         {
-            string SirIngredientPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}",
+            string SirIngredientPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
                 Cantitate,
-                DataAchizitie.ToString(),
-                DataExpirare.ToString());
+                DataAchizitie.ToString("d"),
+                DataExpirare.ToString("d"));
 
             return SirIngredientPentruFisier;
+        }
+        public string ConversieLaSir_PentruFelMancare()
+        {
+            string SirIngredientePentruFisier = string.Format("{0}{1} {2}",
+                SEPARATOR_PRINCIPAL_FISIER,
+                (Denumire ?? "NECUNOSCUT"),
+                Cantitate
+                );
+            return SirIngredientePentruFisier;
         }
     }
 }
