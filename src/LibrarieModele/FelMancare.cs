@@ -8,7 +8,8 @@ namespace LibrarieModele
 {
     public class FelMancare
     {
-        private const char SEPARATOR_PRINCIPAL_FISIER = ';';
+        private const char SEPARATOR_PRINCIPAL_FISIER = ',';
+        private const char SEPARATOR_LISTA_INGREDIENTE = ';';
         private const int DENUMIRE = 0;
         private const int LISTAINGREDIENTE = 1;
 
@@ -32,14 +33,26 @@ namespace LibrarieModele
 
             //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
             Denumire = dateFisier[DENUMIRE];
-            ListaIngrediente = dateFisier[LISTAINGREDIENTE].map;
+            foreach (var data in dateFisier[LISTAINGREDIENTE].Split(SEPARATOR_LISTA_INGREDIENTE))
+            {
+                ListaIngrediente.Append<Ingredient>(new Ingredient(data));
+            }
+        }
+        private string ListaIngrediente_PentruFisier()
+        {
+            string ListaIngredientePentruFisier = "";
+            foreach(var ingredient in ListaIngrediente)
+            {
+                ListaIngredientePentruFisier += ingredient.ConversieLaSir_PentruFisier();
+            }
+            return ListaIngredientePentruFisier;
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string SirIngredientPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}",
+            string SirIngredientPentruFisier = string.Format("{1}{0}{2}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
-                "WIP"   // WIP
+                ListaIngrediente_PentruFisier()
                 );
 
             return SirIngredientPentruFisier;

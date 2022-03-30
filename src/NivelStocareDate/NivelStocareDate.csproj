@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministrareAlimentBaza_FisierText.cs" />
+    <Compile Include="AdministrareIngredient_FisierText.cs" />
+    <Compile Include="AdministrareFelMancare_FisierText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

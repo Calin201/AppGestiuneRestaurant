@@ -14,7 +14,7 @@ namespace LibrarieModele
         private const int DATAACHIZITIE = 2;
         private const int DATAEXPIRARE = 3;
 
-
+        private int Id;
         public string Denumire { get; set; }
         public int Cantitate { get; set; }
         public DateTime DataAchizitie { get; set; }
@@ -55,6 +55,5 @@ namespace LibrarieModele
 
             return SirIngredientPentruFisier;
         }
-        public IList Returna
     }
 }
