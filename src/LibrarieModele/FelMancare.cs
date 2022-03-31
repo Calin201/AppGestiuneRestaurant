@@ -10,8 +10,8 @@ namespace LibrarieModele
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = '`';
         private const char SEPARATOR_LISTA_INGREDIENTE = '-';
-        private const int DENUMIRE = 0;
-        private const int LISTAINGREDIENTE = 1;
+        private const int DENUMIRE = 1;
+        private const int LISTAINGREDIENTE = 2;
 
         public string Denumire { get; set; }
         public List<Ingredient> ListaIngrediente { get; set; }
@@ -30,13 +30,15 @@ namespace LibrarieModele
         public FelMancare(string linieFisier)
         {
             var dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
-
+            int flag = 0;
             //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
             Denumire = dateFisier[DENUMIRE];
+            ListaIngrediente = new List<Ingredient> { new Ingredient() };
             foreach (var data in dateFisier[LISTAINGREDIENTE].Split(SEPARATOR_LISTA_INGREDIENTE))
             {
-                ListaIngrediente.Append<Ingredient>(new Ingredient(data));
+                ListaIngrediente.Append<Ingredient>(new Ingredient(data ?? string.Empty));
             }
+            ListaIngrediente.RemoveAt(0);
         }
         public void Citire()
         {
@@ -70,7 +72,7 @@ namespace LibrarieModele
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string SirIngredientPentruFisier = string.Format("{0}{1}:\n{2}",
+            string SirIngredientPentruFisier = string.Format("{0}{1}{0}\n{2}{0}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
                 ListaIngrediente_PentruFisier()

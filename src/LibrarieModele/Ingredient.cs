@@ -22,7 +22,7 @@ namespace LibrarieModele
 
         public Ingredient()
         {
-            Denumire = null;
+            Denumire = "Undefined";
             Cantitate = 0;
             DataAchizitie = DateTime.MaxValue;
             DataExpirare = DateTime.MinValue;
@@ -36,13 +36,23 @@ namespace LibrarieModele
         }
         public Ingredient(string linieFisier)
         {
-            var dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
+            if (linieFisier == string.Empty)
+            {
+                Denumire = "Undefined";
+                Cantitate = 0;
+                DataAchizitie = DateTime.MaxValue;
+                DataExpirare = DateTime.MinValue;
+            }
+            else
+            {
+                var dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
 
-            //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
-            Denumire = dateFisier[DENUMIRE];
-            Cantitate = Convert.ToInt32(dateFisier[CANTITATE]);
-            DataAchizitie = Convert.ToDateTime(dateFisier[DATAACHIZITIE]);
-            DataExpirare = Convert.ToDateTime(dateFisier[DATAEXPIRARE]);
+                //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
+                Denumire = dateFisier[DENUMIRE];
+                Cantitate = Convert.ToInt32(dateFisier[CANTITATE]);
+                DataAchizitie = Convert.ToDateTime(dateFisier[DATAACHIZITIE]);
+                DataExpirare = Convert.ToDateTime(dateFisier[DATAEXPIRARE]);
+            }
         }
         public Ingredient(string _denumire, string options)
         {
@@ -52,6 +62,10 @@ namespace LibrarieModele
                 Console.WriteLine("Cantitatea:");
                 Cantitate = Convert.ToInt32(Console.ReadLine());
                 DataAchizitie = DataExpirare = DateTime.MaxValue;
+            }
+            if(options == "CreareIngredientMancare")
+            {
+
             }
         }
         public void Citire()
@@ -78,7 +92,7 @@ namespace LibrarieModele
         }
         public string ConversieLaSir_PentruFelMancare()
         {
-            string SirIngredientePentruFisier = string.Format("{0}{1} {2}",
+            string SirIngredientePentruFisier = string.Format("{1} {2}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
                 Cantitate

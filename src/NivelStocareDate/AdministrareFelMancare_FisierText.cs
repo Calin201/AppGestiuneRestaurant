@@ -38,13 +38,16 @@ namespace NivelStocareDate
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
+                string linieFisierIngrediente;
                 nrFeluriMancare = 0;
 
                 // citeste cate o linie si creaza un obiect de tip Student
                 // pe baza datelor din linia citita
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    FeluriMancare[nrFeluriMancare++] = new FelMancare(linieFisier);
+                    linieFisierIngrediente = streamReader.ReadLine();
+                    FeluriMancare[nrFeluriMancare] = new FelMancare(linieFisier+linieFisierIngrediente);
+                    
                 }
             }
 
