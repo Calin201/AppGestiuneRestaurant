@@ -54,7 +54,7 @@ namespace NivelStocareDate
             foreach (var ingr in ingrediente)
             {
                 if (ingr.Denumire == denumire)
-                    ingrediente_gasite.Append(ingr);
+                    ingrediente_gasite.Add(ingr);
             }
             if (ingrediente_gasite.Count == 0)
             {

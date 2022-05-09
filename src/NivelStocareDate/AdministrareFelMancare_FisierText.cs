@@ -46,7 +46,7 @@ namespace NivelStocareDate
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                     linieFisierIngrediente = streamReader.ReadLine();
-                    FeluriMancare[nrFeluriMancare] = new FelMancare(linieFisier+linieFisierIngrediente);
+                    FeluriMancare[nrFeluriMancare++] = new FelMancare(linieFisier+linieFisierIngrediente);
                     
                 }
             }

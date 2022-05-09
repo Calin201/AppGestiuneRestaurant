@@ -30,13 +30,14 @@ namespace LibrarieModele
         public FelMancare(string linieFisier)
         {
             var dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
-            int flag = 0;
+            //int flag = 0;
             //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
             Denumire = dateFisier[DENUMIRE];
             ListaIngrediente = new List<Ingredient> { new Ingredient() };
-            foreach (var data in dateFisier[LISTAINGREDIENTE].Split(SEPARATOR_LISTA_INGREDIENTE))
+            var dataString = dateFisier[LISTAINGREDIENTE].Split(SEPARATOR_LISTA_INGREDIENTE);
+            for (int i=1; i<dataString.Length-1;i++)
             {
-                ListaIngrediente.Append<Ingredient>(new Ingredient(data ?? string.Empty));
+                ListaIngrediente.Add(new Ingredient(dataString[i] ?? string.Empty, "CreareIngredientMancare"));
             }
             ListaIngrediente.RemoveAt(0);
         }
@@ -51,7 +52,7 @@ namespace LibrarieModele
             {
                 Ingredient temp = new Ingredient(denumire, "IngredientMancare");
 
-                ListaIngrediente.Append(temp);
+                ListaIngrediente.Add(temp);
                 Console.WriteLine("Denumirea:");
                 denumire = Console.ReadLine();
             } while (denumire.ToUpper() != "STOP");
@@ -72,11 +73,7 @@ namespace LibrarieModele
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string SirIngredientPentruFisier = string.Format("{0}{1}{0}\n{2}{0}",
-                SEPARATOR_PRINCIPAL_FISIER,
-                (Denumire ?? "NECUNOSCUT"),
-                ListaIngrediente_PentruFisier()
-                );
+            string SirIngredientPentruFisier = $"{SEPARATOR_PRINCIPAL_FISIER}{(Denumire ?? "NECUNOSCUT")}{SEPARATOR_PRINCIPAL_FISIER}\n{ListaIngrediente_PentruFisier()}{SEPARATOR_PRINCIPAL_FISIER}";
 
             return SirIngredientPentruFisier;
         }

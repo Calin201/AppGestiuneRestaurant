@@ -1,0 +1,15 @@
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\WindowToInformation.exe.config
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\WindowToInformation.exe
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\WindowToInformation.pdb
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.csproj.AssemblyReference.cache
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.Properties.Resources.resources
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.csproj.GenerateResource.cache
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.csproj.CoreCompileInputs.cache
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.exe
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.pdb
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\LibrarieModele.dll
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\NivelStocareDate.dll
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\LibrarieModele.pdb
+S:\AppGestiuneRestaurant\src\WindowToInformation\bin\Debug\NivelStocareDate.pdb
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.FereastraPrincipala.resources
+S:\AppGestiuneRestaurant\src\WindowToInformation\obj\Debug\WindowToInformation.csproj.CopyComplete

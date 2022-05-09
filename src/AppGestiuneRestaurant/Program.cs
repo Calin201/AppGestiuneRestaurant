@@ -61,12 +61,12 @@ namespace AppGestiuneRestaurant
                         _administrareIngredient.AddIngredient(ingredient);
                         break;
                     case "C":
-                        /*Laborator 3. Citire date*/
+                        /*Laborator 3. Citire FelMancare*/
                         felMancare = new FelMancare();
                         felMancare.Citire();
                         break;
                     case "K":
-                        /*Laborator 4. Citire armament*/
+                        /*Laborator 4. Citire Ingredient*/
                         ingredient = new Ingredient();
                         ingredient.Citire();
                         break;

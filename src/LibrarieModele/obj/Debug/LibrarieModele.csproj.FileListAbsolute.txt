@@ -4,3 +4,13 @@ S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.Asse
 S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
 S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.dll
 S:\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.pdb
+D:\1-3122b\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.dll
+D:\1-3122b\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.pdb
+D:\1-3122b\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.dll
+D:\1-3122b\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.pdb
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.dll
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\bin\Debug\LibrarieModele.pdb
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.dll
+C:\Users\Calin\Downloads\AppGestiuneRestaurant\src\LibrarieModele\obj\Debug\LibrarieModele.pdb

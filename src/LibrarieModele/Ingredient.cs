@@ -1,11 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LibrarieModele
 {
+    public enum IngredienteUzuale
+    {
+        Apa=0,
+        Zahar=1,
+        Ulei,
+        Lapte,
+        LapteCondensat,
+        Sare,
+        Piper,
+        Boia,
+        PulpePui,
+        CotletPorc,
+        Cartofi,
+        Morcovi,
+        Unt,
+        Paine,
+        Gem,
+        Oua,
+        Varza,
+        Salata,
+        SosRoze,
+        Ketchup,
+        Maioneza,
+        Mustar,
+    }
     public class Ingredient
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
@@ -50,8 +76,8 @@ namespace LibrarieModele
                 //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
                 Denumire = dateFisier[DENUMIRE];
                 Cantitate = Convert.ToInt32(dateFisier[CANTITATE]);
-                DataAchizitie = Convert.ToDateTime(dateFisier[DATAACHIZITIE]);
-                DataExpirare = Convert.ToDateTime(dateFisier[DATAEXPIRARE]);
+                DataAchizitie = DateTime.ParseExact(dateFisier[DATAACHIZITIE],"dd/MM/yyyy", CultureInfo.InvariantCulture);
+                DataExpirare = DateTime.ParseExact(dateFisier[DATAEXPIRARE], "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
         }
         public Ingredient(string _denumire, string options)
@@ -65,19 +91,40 @@ namespace LibrarieModele
             }
             if(options == "CreareIngredientMancare")
             {
-
+                var campuri = _denumire.Split();
+                Denumire = campuri[0];
+                Cantitate = Convert.ToInt32(campuri[1]);
+                DataAchizitie = DataExpirare = DateTime.MaxValue;
             }
         }
         public void Citire()
         {
-            Console.WriteLine("Alegeti numele ingredientului:");
-            Denumire = Console.ReadLine();
+            Console.WriteLine("Alegeti numarul ingredientului:");
+            var ingredienteUzuale = Enum.GetValues(typeof(IngredienteUzuale));
+            for (int i = 0; i < ingredienteUzuale.Length; i++) //IngredienteUzuale ingredient in Enum.GetValues(typeof(IngredienteUzuale)))
+            {
+                Console.WriteLine($"{(int)ingredienteUzuale.GetValue(i)}-{ingredienteUzuale.GetValue(i)}" +
+                    $"\t\t\t" +
+                    $"{(int)ingredienteUzuale.GetValue(i)}-{ingredienteUzuale.GetValue(i)}");
+                
+            }
+            Console.WriteLine("Sau scrieti alt ingredient");
+            var input= Console.ReadLine();
+            int number;
+            if (int.TryParse(input, out number))
+            {
+                Denumire = ((IngredienteUzuale)number).ToString();
+            }
+            else
+            {
+                Denumire = input;
+            }
             Console.WriteLine("Alegeti cantitatea:");
             Cantitate = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Alegeti data achizitiei sub forma xx.xx.20xx:");
-            DataAchizitie = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine("Alegeti data expirarii sub forma xx.xx.20xx:");
-            DataExpirare = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Alegeti data achizitiei sub forma xx/xx/20xx:");
+            DataAchizitie = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            Console.WriteLine("Alegeti data expirarii sub forma xx/xx/20xx:");
+            DataExpirare = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         }
         public string ConversieLaSir_PentruFisier()
         {
@@ -85,8 +132,8 @@ namespace LibrarieModele
                 SEPARATOR_PRINCIPAL_FISIER,
                 (Denumire ?? "NECUNOSCUT"),
                 Cantitate,
-                DataAchizitie.ToString("d"),
-                DataExpirare.ToString("d"));
+                DataAchizitie.ToString("dd/MM/yyyy"),
+                DataExpirare.ToString("dd/MM/yyyy"));
 
             return SirIngredientPentruFisier;
         }
